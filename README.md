@@ -151,23 +151,24 @@ Eg:
 
 ```javascript
 export const personalData = {
-  name: "ABU SAID",
-  profile: "/profile.png",
-  designation: "Full-Stack Software Developer",
-  description: "My name is ABU SAID....",
-  email: "abusaid7388@gmail.com",
-  phone: "+8801608797655",
-  address: "Dhaka, Bangladesh",
-  github: "https://github.com/said7388",
-  facebook: "https://www.facebook.com/abusaid.riyaz/",
-  linkedIn: "https://www.linkedin.com/in/abu-said-bd/",
-  twitter: "https://twitter.com/said7388",
-  stackOverflow: "https://stackoverflow.com/users/16840768/abu-said",
-  leetcode: "https://leetcode.com/said3812/",
-  devUsername: "said7388",
-  resume: "...",
-};
-```
+  name: "Raghav Khandelwal",
+  profile: "/profileimg.png",
+  designation: "Software Developer",
+  description:
+    "I am Raghav Khandelwal, a passionate and enthusiastic Full Stack Developer with a strong interest in DevOps and Blockchain/Web3. I am a quick learner with a self-driven attitude, always eager to explore new technologies and solve real-world problems through code.",
+  email: "raghavvv578@gmail.com",
+  phone: "+91 8003454873",
+  address: "Jaipur",
+  github: "https://github.com/raghavv483",
+  linkedin: "https://www.linkedin.com/in/raghav-khandelwal-3512412a5/",
+  linkedIn: "https://www.linkedin.com/in/raghav-khandelwal-3512412a5/",
+  twitter: "https://x.com/Raghavv483",
+  leetcode: "https://leetcode.com/u/raghav483/",
+  devUsername: "raghavv483",
+  stackOverflow: "https://stackoverflow.com/users/raghav-khandelwal",
+  resume: "https://drive.google.com/file/d/your-resume-id/view"
+}
+
 
 `devUsername` is used for fetching blog posts from `dev.to`.
 

@@ -88,46 +88,33 @@ import fastapi from '../app/assets/svg/skills/fastapi.svg'
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
   switch (skillID) {
-    case 'gcp':
-      return gcp;
+  
     case 'html':
       return html;
-    case 'photoshop':
-      return photoshop;
+    
     case 'docker':
       return docker;
-    case 'illustrator':
-      return illustrator;
-    case 'adobe xd':
-      return adobeXd;
-    case 'after effects':
-      return afterEffects;
+    
+    
+    
     case 'css':
       return css;
-    case 'angular':
-      return angular;
+    
     case 'javascript':
       return javascript;
     case 'next js':
       return nextJS;
-    case 'nuxt js':
-      return nuxtJS;
+    
     case 'react':
       return react;
-    case 'svelte':
-      return svelte;
+    
     case 'typescript':
       return typescript;
-    case 'vue':
-      return vue;
-    case 'bootstrap':
-      return bootstrap;
-    case 'bulma':
-      return bulma;
-    case 'capacitorjs':
-      return capacitorjs;
-    case 'coffeescript':
-      return coffeescript;
+    
+    
+    
+    
+    ;
     case 'memsql':
       return memsql;
     case 'mongodb':
@@ -146,18 +133,8 @@ export const skillsImage = (skill) => {
       return c;
     case 'c++':
       return cplusplus;
-    case 'c#':
-      return csharp;
-    case 'dart':
-      return dart;
-    case 'go':
-      return go;
-    case 'java':
-      return java;
-    case 'kotlin':
-      return kotlin;
-    case 'julia':
-      return julia;
+   
+    
     case 'matlab':
       return matlab;
     case 'php':
@@ -250,8 +227,7 @@ export const skillsImage = (skill) => {
       return kubernetes;
     case 'linux':
       return linux;
-    case 'sqlalchemy':
-      return sqlalchemy;
+  
     case 'fastapi':
       return fastapi;
     default:

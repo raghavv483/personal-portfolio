@@ -64,6 +64,30 @@ function ProjectCard({ project }) {
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
       </div>
+
+      {/* 🔥 Action Buttons */}
+      <div className="flex justify-center gap-4 pb-4">
+        {project.demo && project.demo.trim() !== '' && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-violet-600 text-white text-sm hover:opacity-80 transition"
+          >
+            Live Demo 🚀
+          </a>
+        )}
+        {project.code && (
+          <a
+            href={project.code}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-lg bg-gray-800 text-white text-sm hover:bg-gray-700 transition"
+          >
+            GitHub 🛠
+          </a>
+        )}
+      </div>
     </div>
   );
 };
