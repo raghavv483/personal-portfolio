@@ -5,7 +5,6 @@ import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '../../../assets/lottie/study.json';
 import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
-import NoSSR from "../../helper/no-ssr";
 
 function Education() {
   return (
@@ -45,35 +44,33 @@ function Education() {
             <div className="flex flex-col gap-6">
               {
                 educations.map(education => (
-                  <NoSSR key={education.id}>
-                    <GlowCard identifier={`education-${education.id}`}>
-                      <div className="p-3 relative text-white">
-                        <Image
-                          src="/blur-23.svg"
-                          alt="Hero"
-                          width={1080}
-                          height={200}
-                          className="absolute bottom-0 opacity-80"
-                        />
-                        <div className="flex justify-center">
-                          <p className="text-xs sm:text-sm text-[#16f2b3]">
-                            {education.duration}
-                          </p>
+                  <GlowCard key={education.id} identifier={`education-${education.id}`}>
+                    <div className="p-3 relative text-white">
+                      <Image
+                        src="/blur-23.svg"
+                        alt="Hero"
+                        width={1080}
+                        height={200}
+                        className="absolute bottom-0 opacity-80"
+                      />
+                      <div className="flex justify-center">
+                        <p className="text-xs sm:text-sm text-[#16f2b3]">
+                          {education.duration}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-x-8 px-3 py-5">
+                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
+                          <BsPersonWorkspace size={36} />
                         </div>
-                        <div className="flex items-center gap-x-8 px-3 py-5">
-                          <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                            <BsPersonWorkspace size={36} />
-                          </div>
-                          <div>
-                            <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                              {education.title}
-                            </p>
-                            <p className="text-sm sm:text-base">{education.institution}</p>
-                          </div>
+                        <div>
+                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
+                            {education.title}
+                          </p>
+                          <p className="text-sm sm:text-base">{education.institution}</p>
                         </div>
                       </div>
-                    </GlowCard>
-                  </NoSSR>
+                    </div>
+                  </GlowCard>
                 ))
               }
             </div>

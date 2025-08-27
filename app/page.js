@@ -6,18 +6,6 @@ import Experience from "./components/homepage/experience";
 import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
-import dynamic from 'next/dynamic';
-
-// Dynamically import components that use browser APIs
-const DynamicEducation = dynamic(() => import('./components/homepage/education'), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-});
-
-const DynamicExperience = dynamic(() => import('./components/homepage/experience'), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-});
 
 async function getData() {
   const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
@@ -39,10 +27,10 @@ export default async function Home() {
     <div suppressHydrationWarning >
       <HeroSection />
       <AboutSection />
-      <DynamicExperience />
+      <Experience />
       <Skills />
       <Projects />
-      <DynamicEducation />
+      <Education />
       <ContactSection />
     </div>
   )

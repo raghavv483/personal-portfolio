@@ -3,17 +3,10 @@ import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
-import dynamic from 'next/dynamic';
+import ScrollToTop from "./components/helper/scroll-to-top";
 import Navbar from "./components/navbar";
-import NoSSR from "./components/helper/no-ssr";
 import "./css/card.scss";
 import "./css/globals.scss";
-
-// Dynamically import ScrollToTop to avoid SSR issues
-const ScrollToTop = dynamic(() => import('./components/helper/scroll-to-top'), {
-  ssr: false,
-  loading: () => null
-});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,9 +24,7 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
           <Navbar />
           {children}
-          <NoSSR>
-            <ScrollToTop />
-          </NoSSR>
+          <ScrollToTop />
         </main>
         <Footer />
       </body>
