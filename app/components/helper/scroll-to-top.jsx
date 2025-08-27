@@ -9,21 +9,28 @@ const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
   const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
-  const [isHydrated, setIsHydrated] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Wait for complete hydration
-    setIsHydrated(true);
+    // Only set mounted after component is fully mounted on client
+    setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    // Only run after complete hydration
-    if (!isHydrated) return;
+  // During SSR and initial render, just return the basic structure without any effects
+  if (!isMounted) {
+    return (
+      <button className={DEFAULT_BTN_CLS}>
+        <FaArrowUp />
+      </button>
+    );
+  }
 
-    // Additional safety check
+  // Only after full client-side mounting, add the interactive effects
+  useEffect(() => {
+    // Double-check we're on client
     if (typeof window === 'undefined') return;
 
-    // Wait for DOM to be fully ready
+    // Wait for next tick to ensure DOM is ready
     const timer = setTimeout(() => {
       try {
         const handleScroll = () => {
@@ -52,10 +59,10 @@ const ScrollToTop = () => {
       } catch (error) {
         // Silently handle any errors
       }
-    }, 200);
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, [isHydrated]);
+  }, [isMounted]);
 
   const onClickBtn = () => {
     try {

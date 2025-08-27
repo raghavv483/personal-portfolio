@@ -3,35 +3,44 @@
 import { useEffect, useState } from 'react';
 
 const GlowCard = ({ children, identifier }) => {
-  const [isHydrated, setIsHydrated] = useState(false);
-  const [shouldRender, setShouldRender] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Wait for complete hydration
-    setIsHydrated(true);
-
-    // Additional delay to ensure everything is ready
-    const renderTimer = setTimeout(() => {
-      setShouldRender(true);
-    }, 300);
-
-    return () => clearTimeout(renderTimer);
+    // Only set mounted after component is fully mounted on client
+    setIsMounted(true);
   }, []);
 
+  // During SSR and initial render, just return the basic structure without any effects
+  if (!isMounted) {
+    return (
+      <div className={`glow-container-${identifier} glow-container`}>
+        <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}>
+          <div className="glows"></div>
+          {children}
+        </article>
+      </div>
+    );
+  }
+
+  // Only after full client-side mounting, add the interactive effects
   useEffect(() => {
-    // Only run after complete hydration and render flag
-    if (!isHydrated || !shouldRender) return;
+    // Multiple checks to ensure we're not in SSR
+    if (typeof window === 'undefined' ||
+      typeof document === 'undefined' ||
+      typeof global !== 'undefined' ||
+      typeof process !== 'undefined' ||
+      typeof require !== 'undefined' ||
+      typeof module !== 'undefined' ||
+      typeof exports !== 'undefined' ||
+      typeof __dirname !== 'undefined' ||
+      typeof __filename !== 'undefined') return;
 
-    // Additional safety check
-    if (typeof window === 'undefined' || typeof document === 'undefined') return;
-
-    // Wait for DOM to be fully ready
+    // Wait for next tick to ensure DOM is ready
     const timer = setTimeout(() => {
       try {
         const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
         const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
-        // Check if elements exist before proceeding
         if (!CONTAINER || !CARDS.length) return;
 
         const CONFIG = {
@@ -115,22 +124,10 @@ const GlowCard = ({ children, identifier }) => {
       } catch (error) {
         // Silently handle any errors
       }
-    }, 500);
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, [identifier, isHydrated, shouldRender]);
-
-  // Don't render anything until fully hydrated
-  if (!isHydrated) {
-    return (
-      <div className={`glow-container-${identifier} glow-container`}>
-        <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}>
-          <div className="glows"></div>
-          {children}
-        </article>
-      </div>
-    );
-  }
+  }, [identifier, isMounted]);
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
