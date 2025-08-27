@@ -2,7 +2,7 @@ export const projectsData = [
     {
         id: 1,
         name: 'AIcademy',
-        description: "AIcademy is an AI-powered e-learning platform where students can access personalized learning materials, quizzes, and doubt-solving assistants. It uses Retrieval-Augmented Generation (RAG) with LangChain, OpenAI API, and ChromaDB to provide accurate answers from uploaded documents and curated datasets. The platform supports role-based authentication and real-time interactive chatbots for learning assistance.",
+        description: "AIcademy is a Next.js SaaS platform that enables users to generate, manage, and track AI-curated courses. It leverages the Groq API for automated course creation and the YouTube API for personalized video lessons, while Clerk ensures secure authentication. Each course has its own dynamic page with progress tracking and resources, supported by Supabase for storage and a scalable Drizzle ORM + Neon PostgreSQL database. With integrated Stripe payments, AIcademy offers a seamless end-to-end experience for AI-driven learning",
         tools: ['Next.js', 'Tailwind CSS', 'Groq API', 'PrismaORM', 'Clerk', 'PostgreSQL', 'YoutubeAPI', 'SupaBase'],
         role: 'Full Stack Developer',
         code: 'https://github.com/raghavv483/AIcademy',
@@ -11,11 +11,11 @@ export const projectsData = [
     {
         id: 2,
         name: 'Netflix GPT',
-        description: "A personalized movie recommendation app that combines TMDB API with OpenAI GPT to suggest movies and TV shows based on user mood and preferences. Users can search, filter, and view trending shows in real-time. Implemented authentication and deployed with production-ready optimizations.",
+        description: "A personalized movie recommendation app that combines TMDB API with Gemini to suggest movies and TV shows based on user mood and preferences. Users can search, filter, and view trending shows in real-time. Implemented authentication and deployed with production-ready optimizations.",
         tools: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Firebase', 'TMDB API', 'GeminiAPI'],
         role: 'Frontend Developer',
         code: 'https://github.com/raghavv483/netflix-gpt',
-        demo: "netflix-gpt-two-azure.vercel.app",
+        demo: 'https://netflix-gpt-two-azure.vercel.app'
     },
     {
         id: 3,
