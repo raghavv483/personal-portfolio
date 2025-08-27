@@ -9,48 +9,61 @@ const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
   const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
-  const [isClient, setIsClient] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    // Wait for complete hydration
+    setIsHydrated(true);
   }, []);
 
   useEffect(() => {
-    // Only run on client side
-    if (!isClient) return;
+    // Only run after complete hydration
+    if (!isHydrated) return;
 
-    // Check if we're on the client side
+    // Additional safety check
     if (typeof window === 'undefined') return;
 
-    // Wait for the next tick to ensure everything is ready
+    // Wait for DOM to be fully ready
     const timer = setTimeout(() => {
-      const handleScroll = () => {
-        if (typeof window !== 'undefined' && window.scrollY !== undefined) {
-          if (window.scrollY > SCROLL_THRESHOLD) {
-            setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
-          } else {
-            setBtnCls(DEFAULT_BTN_CLS + " hidden");
+      try {
+        const handleScroll = () => {
+          if (typeof window !== 'undefined' && window.scrollY !== undefined) {
+            if (window.scrollY > SCROLL_THRESHOLD) {
+              setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
+            } else {
+              setBtnCls(DEFAULT_BTN_CLS + " hidden");
+            }
           }
-        }
-      };
+        };
 
-      if (typeof window !== 'undefined' && window.addEventListener) {
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        if (typeof window !== 'undefined' && window.addEventListener) {
+          window.addEventListener("scroll", handleScroll, { passive: true });
+        }
+
+        return () => {
+          try {
+            if (typeof window !== 'undefined' && window.removeEventListener) {
+              window.removeEventListener("scroll", handleScroll, { passive: true });
+            }
+          } catch (error) {
+            // Silently handle cleanup errors
+          }
+        };
+      } catch (error) {
+        // Silently handle any errors
       }
-
-      return () => {
-        if (typeof window !== 'undefined' && window.removeEventListener) {
-          window.removeEventListener("scroll", handleScroll, { passive: true });
-        }
-      };
-    }, 100);
+    }, 200);
 
     return () => clearTimeout(timer);
-  }, [isClient]);
+  }, [isHydrated]);
 
   const onClickBtn = () => {
-    if (typeof window !== 'undefined' && window.scrollTo) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    try {
+      if (typeof window !== 'undefined' && window.scrollTo) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } catch (error) {
+      // Silently handle any errors
     }
   };
 
