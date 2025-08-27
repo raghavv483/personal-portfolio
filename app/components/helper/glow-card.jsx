@@ -2,10 +2,16 @@
 
 import { useEffect } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
+    // Check if we're on the client side
+    if (typeof window === 'undefined') return;
+
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
+
+    // Check if elements exist before proceeding
+    if (!CONTAINER || !CARDS.length) return;
 
     const CONFIG = {
       proximity: 40,
@@ -64,7 +70,9 @@ const GlowCard = ({ children , identifier}) => {
 
     // Cleanup event listener
     return () => {
-      document.body.removeEventListener('pointermove', UPDATE);
+      if (typeof window !== 'undefined') {
+        document.body.removeEventListener('pointermove', UPDATE);
+      }
     };
   }, [identifier]);
 
