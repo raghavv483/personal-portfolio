@@ -3,8 +3,6 @@
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
-import experience from '../../../assets/lottie/code.json';
-import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
 
 function Experience() {
@@ -31,8 +29,8 @@ function Experience() {
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
-            <div className="w-full h-full">
-              <AnimationLottie animationPath={experience} />
+            <div className="w-full h-full bg-[#101123] rounded-xl border border-[#2a2e5a] flex items-center justify-center min-h-[300px]">
+              <p className="text-[#16f2b3] text-lg">Experience Animation</p>
             </div>
           </div>
 
