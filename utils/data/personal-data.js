@@ -2,8 +2,7 @@ export const personalData = {
   name: "Raghav Khandelwal",
   profile: "/profileimg.png",
   designation: "Software Developer",
-  description:
-    "I am Raghav Khandelwal, a passionate and enthusiastic Full Stack Developer with a strong interest in DevOps and Blockchain/Web3. I am a quick learner with a self-driven attitude, always eager to explore new technologies and solve real-world problems through code.",
+  description: "I am Raghav Khandelwal, a self-driven Full Stack Developer specializing in building scalable web ecosystems and microservices architectures. With robust expertise across the modern JavaScript framework pipeline, cloud-native tools, and intelligent system design, I love breaking down complex architectural hurdles and engineering high-throughput backend applications from the ground up.",
   email: "raghavvv578@gmail.com",
   phone: "+91 8003454873",
   address: "Jaipur",
@@ -13,5 +12,5 @@ export const personalData = {
   twitter: "https://x.com/Raghavv483",
   leetcode: "https://leetcode.com/u/raghav483/",
   devUsername: "raghavv483",
-  resume: "https://drive.google.com/file/d/1LW5T9ZSf1P01c69XvwU1PhcC98hgat98/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1Rt-pBrbPyeV7M2slG9Dfvd8fM3hiaNfl/view"
 }
