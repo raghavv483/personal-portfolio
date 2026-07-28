@@ -143,6 +143,18 @@ export const skillsImage = (skill) => {
       return prisma;
     case 'python':
       return python;
+    case 'langchain':
+      return python;
+    case 'langgraph':
+      return python;
+    case 'streamlit':
+      return python;
+    case 'chromadb':
+      return python;
+    case 'huggingface':
+      return python;
+    case 'whisper':
+      return python;
     case 'ruby':
       return ruby;
     case 'swift':

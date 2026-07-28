@@ -26,4 +26,22 @@ export const projectsData = [
         code: 'https://github.com/raghavv483/netflix-gpt',
         demo: 'https://netflix-gpt-two-azure.vercel.app',
     },
+    {
+        id: 4,
+        name: 'AI Travel Planning System',
+        description: "Built an agentic travel planning pipeline using LangGraph and LangChain to coordinate autonomous Flight, Hotel, Itinerary, and Final Response agents. Integrated Groq-hosted Llama 3.3 70B for low-latency reasoning and real-time tool-calls across AviationStack and Tavily APIs, with Dockerized PostgreSQL storing agent memory and Streamlit powering the end-user itinerary experience.",
+        tools: ['Python', 'LangGraph', 'LangChain', 'Groq', 'PostgreSQL', 'Streamlit', 'Docker', 'AviationStack API', 'Tavily API'],
+        role: 'Agentic AI Systems Engineer',
+        code: 'https://github.com/raghavv483/trip-planner-agent',
+        demo: '',
+    },
+    {
+        id: 5,
+        name: 'AI Meeting Assistant (RAG)',
+        description: "Created a RAG-powered meeting intelligence assistant that transcribes YouTube URLs and audio/video files with Whisper and Sarvam AI, then generates structured summaries, action items, and follow-up questions via LangChain LCEL. Built a conversational interface backed by ChromaDB and HuggingFace embeddings, with Streamlit export support for PDF/TXT reports and local model deployment to eliminate recurring API costs.",
+        tools: ['Python', 'LangChain', 'Whisper', 'ChromaDB', 'HuggingFace', 'Streamlit', 'PDF/TXT Export'],
+        role: 'AI/ML Product Engineer',
+        code: 'https://github.com/raghavv483/video-assistant-rag',
+        demo: '',
+    },
 ];

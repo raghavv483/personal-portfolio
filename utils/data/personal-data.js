@@ -1,8 +1,8 @@
 export const personalData = {
   name: "Raghav Khandelwal",
   profile: "/profileimg.png",
-  designation: "Software Developer",
-  description: "I am Raghav Khandelwal, a self-driven Full Stack Developer specializing in building scalable web ecosystems and microservices architectures. With robust expertise across the modern JavaScript framework pipeline, cloud-native tools, and intelligent system design, I love breaking down complex architectural hurdles and engineering high-throughput backend applications from the ground up.",
+  designation: "Software Developer & Agentic AI Engineer",
+  description: "I am Raghav Khandelwal, a self-driven Software Development Engineer and agentic AI systems builder. I design scalable backend systems, microservices, and intelligent AI orchestration workflows using modern JavaScript, Python, LangChain, LangGraph, and cloud-native infrastructure. I enjoy solving complex architectural problems while building production-ready systems that automate multi-turn reasoning and agentic decision flow.",
   email: "raghavvv578@gmail.com",
   phone: "+91 8003454873",
   address: "Jaipur",
